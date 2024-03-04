@@ -9,9 +9,7 @@ public class LevelManager : MonoBehaviour
     public void loadScene(string value)
     {
         //if(value is int) { SceneManager.LoadScene((int)value); }
-        //if (value is string) { SceneManager.LoadScene((string)value); }
-        //else { throw new NotImplementedException("Youboring"); }
-
-        SceneManager.LoadScene(value);
+        if (value is string) { SceneManager.LoadScene((string)value); }
+       //else { throw new NotImplementedException("Youboring"); }
     }
 }
