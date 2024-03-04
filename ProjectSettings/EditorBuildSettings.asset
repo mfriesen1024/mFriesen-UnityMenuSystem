@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 58a3eaae6bb693842b3f79a2f58f5cbe
   - enabled: 1
-    path: Assets/Scenes/Scene.unity
+    path: Assets/Scenes/Gameplay.unity
     guid: ecc38dd83d2382842943c2dab5a20299
   - enabled: 1
     path: Assets/Scenes/Angry Rock.unity
