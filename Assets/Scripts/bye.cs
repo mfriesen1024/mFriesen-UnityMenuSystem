@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class bye : MonoBehaviour
 {
+    string sceneName = "Angry Rock";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,6 @@ public class bye : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(sceneName);
     }
 }
