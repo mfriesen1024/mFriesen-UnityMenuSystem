@@ -21,6 +21,11 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
+    }
+
+    private void NullCheckTempObjects()
+    {
         if (options == null) { options = new(); }
         if (gameOver == null) { gameOver = new(); }
         if (win == null) { win = new(); }
@@ -29,9 +34,11 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        NullCheckTempObjects();
         // Check for pause.
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            Debug.Log("you boring");
             switch (state)
             {
                 case GameState.pause: state = GameState.gameplay; break;
@@ -39,13 +46,22 @@ public class UIManager : MonoBehaviour
             }
         }
 
-        switch (state)
+        try
         {
-            case GameState.gameplay: EnterGameplay(); break;
-            case GameState.mainMenu: EnterMainMenu(); break;
-            case GameState.pause: SetInactive(); pause.SetActive(true); break;
-            case GameState.options: SetInactive(); options.SetActive(true); break;
-            case GameState.win: SetInactive(); win.SetActive(true); break;
+            switch (state)
+            {
+                case GameState.gameplay: EnterGameplay(); break;
+                case GameState.mainMenu: EnterMainMenu(); break;
+                case GameState.pause: SetInactive(); pause.SetActive(true); break;
+                case GameState.options: SetInactive(); options.SetActive(true); break;
+                case GameState.win: SetInactive(); win.SetActive(true); break;
+            }
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.Message);
+            Debug.Log(e.StackTrace);
+            Debug.Log(state);
         }
     }
 
@@ -54,6 +70,7 @@ public class UIManager : MonoBehaviour
         SetInactive();
         mainMenu.SetActive(true);
         if(SceneManager.GetActiveScene().name != mainMenuSceneName) {
+            Debug.Log(SceneManager.GetActiveScene().name);
             LevelManager lm = GetComponentInChildren<LevelManager>();
             lm.loadScene(mainMenuSceneName);
         }

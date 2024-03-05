@@ -1070,9 +1070,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 2067572303}
-  mainMenuSceneName: 
+  mainMenuSceneName: Menu
   pause: {fileID: 7929398}
-  gameplaySceneName: 
+  gameplaySceneName: Gameplay
   options: {fileID: 0}
   gameOver: {fileID: 0}
   gameOverSceneName: 
