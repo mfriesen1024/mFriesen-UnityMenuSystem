@@ -6,7 +6,7 @@ public    enum GameState { mainMenu, gameplay, pause, options, gameOver, win }
 public class UIManager : MonoBehaviour
 {
 
-    [SerializeField] GameState state;
+    GameManager gameManager;
 
     [SerializeField] GameObject mainMenu;
     [SerializeField] string mainMenuSceneName;
@@ -21,13 +21,15 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        gameManager = GetComponent<GameManager>();
+
         string sceneName = SceneManager.GetActiveScene().name;
 
         //Debug.Log(sceneName);
         switch (sceneName)
         {
-            case "Menu": state = GameState.mainMenu; break;
-            case "Gameplay": state = GameState.gameplay; Debug.LogWarning("Somehow, awoke in gameplay scene. This might be wrong."); break;
+            case "Menu": gameManager.state = GameState.mainMenu; break;
+            case "Gameplay": gameManager.state = GameState.gameplay; Debug.LogWarning("Somehow, awoke in gameplay scene. This might be wrong."); break;
         }
     }
 
@@ -38,33 +40,21 @@ public class UIManager : MonoBehaviour
         if (win == null) { win = new(); }
     }
 
-    public void SetState(int state)
-    {
-        this.state = (GameState)state;
-    }
+    
 
     // Update is called once per frame
     void Update()
     {
         NullCheckTempObjects();
         // Check for pause.
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("you boring");
-            switch (state)
-            {
-                case GameState.pause: state = GameState.gameplay; break;
-                case GameState.gameplay: state = GameState.pause; break;
-            }
-        }
 
         try
         {
-            switch (state)
+            switch (gameManager.state)
             {
                 case GameState.gameplay: EnterGameplay(); break;
                 case GameState.mainMenu: EnterMainMenu(); break;
-                case GameState.pause: SetInactive(); pause.SetActive(true); break;
+                case GameState.pause: SetInactive(); EnterPause(); break;
                 case GameState.options: SetInactive(); options.SetActive(true); break;
                 case GameState.win: SetInactive(); win.SetActive(true); break;
             }
@@ -73,8 +63,16 @@ public class UIManager : MonoBehaviour
         {
             Debug.Log(e.Message);
             Debug.Log(e.StackTrace);
-            Debug.Log(state);
+            Debug.Log(gameManager.state);
         }
+    }
+
+    private void EnterPause()
+    {
+        pause.SetActive(true);
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void EnterMainMenu()
