@@ -1,12 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+public    enum GameState { mainMenu, gameplay, pause, options, gameOver, win }
 
 public class UIManager : MonoBehaviour
 {
-    enum GameState { mainMenu, gameplay, pause, options, gameOver, win }
 
-    GameState state = GameState.mainMenu;
+    [SerializeField] GameState state;
 
     [SerializeField] GameObject mainMenu;
     [SerializeField] string mainMenuSceneName;
@@ -21,7 +21,14 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        
+        string sceneName = SceneManager.GetActiveScene().name;
+
+        //Debug.Log(sceneName);
+        switch (sceneName)
+        {
+            case "Menu": state = GameState.mainMenu; break;
+            case "Gameplay": state = GameState.gameplay; Debug.LogWarning("Somehow, awoke in gameplay scene. This might be wrong."); break;
+        }
     }
 
     private void NullCheckTempObjects()
@@ -29,6 +36,11 @@ public class UIManager : MonoBehaviour
         if (options == null) { options = new(); }
         if (gameOver == null) { gameOver = new(); }
         if (win == null) { win = new(); }
+    }
+
+    public void SetState(int state)
+    {
+        this.state = (GameState)state;
     }
 
     // Update is called once per frame
@@ -69,7 +81,8 @@ public class UIManager : MonoBehaviour
     {
         SetInactive();
         mainMenu.SetActive(true);
-        if(SceneManager.GetActiveScene().name != mainMenuSceneName) {
+        if (SceneManager.GetActiveScene().name != mainMenuSceneName)
+        {
             Debug.Log(SceneManager.GetActiveScene().name);
             LevelManager lm = GetComponentInChildren<LevelManager>();
             lm.loadScene(mainMenuSceneName);
