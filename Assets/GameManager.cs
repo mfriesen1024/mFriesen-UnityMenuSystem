@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public void SetState(int state)
     {
+        Debug.Log(state);
         this.state = (GameState)state;
     }
 
