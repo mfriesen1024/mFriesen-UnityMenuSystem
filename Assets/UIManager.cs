@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
 
     GameManager gameManager;
+    LevelManager lm;
 
     [SerializeField] GameObject mainMenu;
     [SerializeField] string mainMenuSceneName;
@@ -21,6 +22,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        lm = GetComponentInChildren<LevelManager>();
+
         gameManager = GetComponent<GameManager>();
 
         string sceneName = SceneManager.GetActiveScene().name;
@@ -55,7 +58,8 @@ public class UIManager : MonoBehaviour
                 case GameState.gameplay: EnterGameplay(); break;
                 case GameState.mainMenu: EnterMainMenu(); break;
                 case GameState.pause: SetInactive(); EnterPause(); break;
-                case GameState.options: SetInactive(); options.SetActive(true); break;
+                case GameState.optionsGameplay:
+                case GameState.optionsMenu: SetInactive(); options.SetActive(true); break;
                 case GameState.win: SetInactive(); win.SetActive(true); break;
             }
         }
@@ -75,6 +79,8 @@ public class UIManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+
+
     private void EnterMainMenu()
     {
         SetInactive();
@@ -82,8 +88,8 @@ public class UIManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != mainMenuSceneName)
         {
             Debug.Log(SceneManager.GetActiveScene().name);
-            LevelManager lm = GetComponentInChildren<LevelManager>();
-            lm.loadScene(mainMenuSceneName);
+            
+            lm.LoadScene(mainMenuSceneName);
         }
 
         Cursor.visible = true;
@@ -95,8 +101,7 @@ public class UIManager : MonoBehaviour
         SetInactive();
         if (SceneManager.GetActiveScene().name != gameplaySceneName)
         {
-            LevelManager lm = GetComponentInChildren<LevelManager>();
-            lm.loadScene(gameplaySceneName);
+            lm.LoadScene(gameplaySceneName);
         }
 
         Cursor.visible = false;
@@ -110,10 +115,5 @@ public class UIManager : MonoBehaviour
         options.SetActive(false);
         gameOver.SetActive(false);
         win.SetActive(false);
-    }
-
-    void MainMenu()
-    {
-        throw new NotImplementedException();
     }
 }

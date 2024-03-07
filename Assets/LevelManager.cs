@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public void loadScene(string value)
+    public void LoadScene(string value)
     {
         try { throw new DebugException(); }
         catch (DebugException e)
@@ -13,7 +13,7 @@ public class LevelManager : MonoBehaviour
             Debug.Log(e.StackTrace);
         }
         //if(value is int) { SceneManager.LoadScene((int)value); }
-        if (value is string) { SceneManager.LoadScene((string)value); }
+        if (value is not null) { SceneManager.LoadScene(value); }
         //else { throw new NotImplementedException("Youboring"); }
 
 
