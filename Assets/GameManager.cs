@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+public enum GameState { mainMenu, gameplay, pause, options, gameOver, angryRock, win }
 public class GameManager : MonoBehaviour
 {
     public GameState state;

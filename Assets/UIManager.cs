@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public    enum GameState { mainMenu, gameplay, pause, options, gameOver, win }
+
 
 public class UIManager : MonoBehaviour
 {
