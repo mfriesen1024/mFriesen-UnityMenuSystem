@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,15 +9,15 @@ public class UIManager : MonoBehaviour
     GameManager gameManager;
     LevelManager lm;
 
-    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject UIMainMenu;
     [SerializeField] string mainMenuSceneName;
-    [SerializeField] GameObject pause;
+    [SerializeField] GameObject UIPause;
     [SerializeField] string gameplayScene1Name;
     [SerializeField] List<string> gameplaySceneNames;
-    [SerializeField] GameObject options;
-    [SerializeField] GameObject gameOver;
+    [SerializeField] GameObject UIOptions;
+    [SerializeField] GameObject UIGameOver;
     [SerializeField] string gameOverSceneName;
-    [SerializeField] GameObject win;
+    [SerializeField] GameObject UIWin;
     [SerializeField] string winSceneName;
 
     // Start is called before the first frame update
@@ -40,12 +39,12 @@ public class UIManager : MonoBehaviour
 
     private void NullCheckTempObjects()
     {
-        if (options == null) { options = new(); }
-        if (gameOver == null) { gameOver = new(); }
-        if (win == null) { win = new(); }
+        if (UIOptions == null) { UIOptions = new(); }
+        if (UIGameOver == null) { UIGameOver = new(); }
+        if (UIWin == null) { UIWin = new(); }
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
@@ -61,8 +60,9 @@ public class UIManager : MonoBehaviour
                 case GameState.mainMenu: EnterMainMenu(); break;
                 case GameState.pause: EnterPause(); break;
                 case GameState.optionsGameplay:
-                case GameState.optionsMenu: SetInactive(); options.SetActive(true); break;
-                case GameState.win: SetInactive(); win.SetActive(true); break;
+                case GameState.optionsMenu: SetInactive(); UIOptions.SetActive(true); break;
+                case GameState.win: GameOver(true); break;
+                case GameState.gameOver: GameOver(false); break;
             }
         }
         //catch (Exception e)
@@ -73,11 +73,19 @@ public class UIManager : MonoBehaviour
         //}
     }
 
+    private void GameOver(bool win)
+    {
+        SetInactive();
+
+        if (win) { UIWin.SetActive(true); }
+        else { UIGameOver.SetActive(true); }
+    }
+
     private void EnterPause()
     {
         SetInactive();
 
-        pause.SetActive(true);
+        UIPause.SetActive(true);
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -88,11 +96,11 @@ public class UIManager : MonoBehaviour
     private void EnterMainMenu()
     {
         SetInactive();
-        mainMenu.SetActive(true);
+        UIMainMenu.SetActive(true);
         if (SceneManager.GetActiveScene().name != mainMenuSceneName)
         {
             Debug.Log(SceneManager.GetActiveScene().name);
-            
+
             lm.LoadScene(mainMenuSceneName);
         }
 
@@ -117,11 +125,11 @@ public class UIManager : MonoBehaviour
 
     void SetInactive()
     {
-        mainMenu.SetActive(false);
-        pause.SetActive(false);
-        options.SetActive(false);
-        gameOver.SetActive(false);
-        win.SetActive(false);
+        UIMainMenu.SetActive(false);
+        UIPause.SetActive(false);
+        UIOptions.SetActive(false);
+        UIGameOver.SetActive(false);
+        UIWin.SetActive(false);
         gameManager.PlayerSetActive(false);
 
         Time.timeScale = 1;
