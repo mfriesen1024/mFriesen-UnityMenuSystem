@@ -9,15 +9,12 @@ public class GameManager : MonoBehaviour
     public GameState state;
 
     public GameObject player;
-    [SerializeField] string playerName;
 
     internal string scene1Spawn;
 
     private void Awake()
     {
         levelManager = GetComponent<LevelManager>();
-
-        player = GameObject.Find(playerName);
     }
 
     public void SetState(int state)
