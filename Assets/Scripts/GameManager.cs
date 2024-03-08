@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
 
-    internal string scene1Spawn;
+    string scene1Spawn = "SpawnPoint";
 
     private void Awake()
     {
@@ -32,12 +32,14 @@ public class GameManager : MonoBehaviour
         else { Debug.LogError("Invalid state."); }
     }
 
-    public void TryGameplayLoad(string sceneName, string spawnPointName)
+    public void TryGameplayLoad(string sceneName, string spawnPointName, bool useTag = false)
     {
         levelManager.LoadScene(sceneName);
         if (spawnPointName != null && spawnPointName != string.Empty)
         {
-            GameObject spawnPoint = GameObject.Find(spawnPointName);
+            GameObject spawnPoint;
+            if (!useTag) { spawnPoint = GameObject.Find(spawnPointName); }
+            else { spawnPoint = GameObject.FindWithTag(spawnPointName); }
             // Redundancy
             if (spawnPoint != null)
             {
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-    public void TryGameplayLoad(string sceneName) { TryGameplayLoad(sceneName, scene1Spawn); }
+    public void TryGameplayLoad(string sceneName) { TryGameplayLoad(sceneName, scene1Spawn, true); }
 
     private void Update()
     {
