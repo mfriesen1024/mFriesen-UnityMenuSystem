@@ -1971,8 +1971,11 @@ MonoBehaviour:
   mainMenu: {fileID: 2067572303}
   mainMenuSceneName: Menu
   pause: {fileID: 7929398}
-  gameplayScene1Name: 
-  gameplaySceneNames: []
+  gameplayScene1Name: Gameplay01
+  gameplaySceneNames:
+  - Gameplay01
+  - Gameplay02
+  - Gameplay03
   options: {fileID: 2136206402}
   gameOver: {fileID: 1717273547}
   gameOverSceneName: GameOver
