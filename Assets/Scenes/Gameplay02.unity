@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: WarpTrigger
       objectReference: {fileID: 0}
+    - target: {fileID: 6123210203850324296, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.5

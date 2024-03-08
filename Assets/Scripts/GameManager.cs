@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     bool rForWarp;
 
+    bool useTag;
+    string spawnPointName;
+
     string scene1Spawn = "SpawnPoint";
 
     private void Awake()
@@ -25,7 +28,20 @@ public class GameManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        rForWarp = true;
+        Warp();
+    }
+
+    void Warp()
+    {
+        GameObject spawnPoint;
+        if (!useTag) { spawnPoint = GameObject.Find(spawnPointName); }
+        else { spawnPoint = GameObject.FindWithTag(spawnPointName); }
+        // Redundancy
+        if (spawnPoint != null)
+        {
+            player.transform.position = spawnPoint.transform.position;
+        }
+        bool debug = true;
     }
 
     public void SetState(int state)
@@ -48,24 +64,10 @@ public class GameManager : MonoBehaviour
         levelManager.LoadScene(sceneName);
         if (spawnPointName != null && spawnPointName != string.Empty)
         {
-            WarpAsync(spawnPointName, useTag);
+            this.spawnPointName = spawnPointName; this.useTag = useTag;
         }
     }
     public void TryGameplayLoad(string sceneName) { TryGameplayLoad(sceneName, scene1Spawn, true); }
-
-    IEnumerator WarpAsync(string spawnPointName, bool useTag)
-    {
-        yield return new WaitUntil(() => rForWarp);
-
-        GameObject spawnPoint;
-        if (!useTag) { spawnPoint = GameObject.Find(spawnPointName); }
-        else { spawnPoint = GameObject.FindWithTag(spawnPointName); }
-        // Redundancy
-        if (spawnPoint != null)
-        {
-            player.transform.position = spawnPoint.transform.position;
-        }
-    }
 
     private void Update()
     {
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("you boring");
             switch (state)
             {
-                //case GameState.pause: state = GameState.gameplay; break;
+                case GameState.pause: state = GameState.gameplay; break;
                 case GameState.gameplay: state = GameState.pause; break;
             }
         }
