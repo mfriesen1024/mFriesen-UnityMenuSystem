@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Gameplay01.unity
     guid: ecc38dd83d2382842943c2dab5a20299
   - enabled: 1
+    path: Assets/Scenes/Gameplay02.unity
+    guid: e8ae4678a31a13643b9058013b2b86d8
+  - enabled: 1
     path: Assets/Scenes/Angry Rock.unity
     guid: 29722c86e7211b24084e0eb8b7f007a7
   - enabled: 1

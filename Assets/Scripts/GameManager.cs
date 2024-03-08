@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        levelManager = GetComponent<LevelManager>();
+        levelManager = GetComponentInChildren<LevelManager>();
     }
 
     public void SetState(int state)

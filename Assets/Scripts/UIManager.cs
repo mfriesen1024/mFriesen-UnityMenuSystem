@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
         NullCheckTempObjects();
         // Check for pause.
 
-        try
+        //try
         {
             switch (gameManager.state)
             {
@@ -65,12 +65,12 @@ public class UIManager : MonoBehaviour
                 case GameState.win: SetInactive(); win.SetActive(true); break;
             }
         }
-        catch (Exception e)
-        {
-            Debug.Log(e.Message);
-            Debug.Log(e.StackTrace);
-            Debug.Log(gameManager.state);
-        }
+        //catch (Exception e)
+        //{
+        //    Debug.Log(e.Message);
+        //    Debug.Log(e.StackTrace);
+        //    Debug.Log(gameManager.state);
+        //}
     }
 
     private void EnterPause()
