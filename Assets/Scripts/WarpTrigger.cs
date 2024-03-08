@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+enum TriggerType { warp, win, lose }
 
 public class WarpTrigger : MonoBehaviour
 {
@@ -10,8 +10,9 @@ public class WarpTrigger : MonoBehaviour
 
     GameManager gm;
 
-    [SerializeField] public string spawnPoint;
-    [SerializeField] public string levelName;
+    public string spawnPoint;
+    public string levelName;
+    [SerializeField] TriggerType type = TriggerType.warp;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +22,11 @@ public class WarpTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) { gm.TryGameplayLoad(levelName, spawnPoint); }
+        switch (type)
+        {
+            case TriggerType.warp: if (collision.CompareTag("Player")) { gm.TryGameplayLoad(levelName, spawnPoint); } break;
+            case TriggerType.lose: gm.SetState(5); break;
+            case TriggerType.win: gm.SetState(7); break;
+        }
     }
 }
