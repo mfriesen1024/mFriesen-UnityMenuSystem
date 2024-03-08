@@ -99470,6 +99470,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2013336874334448686, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_Name
+      value: WarpSpawnPointNorth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317102305914180192, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: levelName
+      value: Gameplay02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317102305914180192, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: spawnPoint
+      value: WarpSpawnPoint
+      objectReference: {fileID: 0}
     - target: {fileID: 6047424290114527251, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
       propertyPath: m_Name
       value: WarpTrigger
