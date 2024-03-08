@@ -123,6 +123,79 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &965223319
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2013336874334448686, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_TagString
+      value: SpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2815575998460109347, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317102305914180192, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: levelName
+      value: Gameplay01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317102305914180192, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: spawnPoint
+      value: WarpSpawnPointNorth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047424290114527251, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_Name
+      value: WarpTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 28.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
 --- !u!1 &1359309574
 GameObject:
   m_ObjectHideFlags: 0
@@ -10572,8 +10645,83 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &1627158667
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2013336874334448686, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_Name
+      value: WarpSpawnPointNorth
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317102305914180192, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: levelName
+      value: Gameplay03
+      objectReference: {fileID: 0}
+    - target: {fileID: 4317102305914180192, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: spawnPoint
+      value: WarpSpawnPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 6047424290114527251, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_Name
+      value: WarpTriggerNorth
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123210203850324296, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 46.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6992283392469491017, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1359309576}
+  - {fileID: 965223319}
+  - {fileID: 1627158667}
