@@ -135,6 +135,10 @@ PrefabInstance:
       propertyPath: type
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5767438006324456082, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_EdgeRadius
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6047424290114527251, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
       propertyPath: m_Name
       value: WinTrigger
@@ -153,6 +157,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6123210203850324296, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6123210203850324296, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
+      propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6123210203850324296, guid: 6ea64dc100aae5349a8134486f6ec2ac, type: 3}
