@@ -869,6 +869,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character
       objectReference: {fileID: 0}
+    - target: {fileID: 5760183811607656935, guid: b8fbd712cfdd39043bb2fc456b061a36, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1967,7 +1971,8 @@ MonoBehaviour:
   mainMenu: {fileID: 2067572303}
   mainMenuSceneName: Menu
   pause: {fileID: 7929398}
-  gameplaySceneName: Gameplay01
+  gameplayScene1Name: 
+  gameplaySceneNames: []
   options: {fileID: 2136206402}
   gameOver: {fileID: 1717273547}
   gameOverSceneName: GameOver
