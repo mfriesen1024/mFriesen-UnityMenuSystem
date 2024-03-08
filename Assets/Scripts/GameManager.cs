@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         Warp();
+        player.GetComponent<CharacterController2D>().ForceResetComponents();
     }
 
     void Warp()

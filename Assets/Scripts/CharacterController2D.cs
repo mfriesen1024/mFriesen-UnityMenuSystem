@@ -12,10 +12,15 @@ public class CharacterController2D : MonoBehaviour
     bool isSprinting = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
+    }
+
+    public void ForceResetComponents()
+    {
+        Awake();
     }
 
     void FixedUpdate()
