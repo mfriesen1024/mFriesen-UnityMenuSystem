@@ -9,7 +9,9 @@ public class GameManager : MonoBehaviour
     public GameState state;
 
     public GameObject player;
-    public string playerName;
+    [SerializeField] string playerName;
+
+    internal string scene1Spawn;
 
     private void Awake()
     {
@@ -44,6 +46,7 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+    public void TryGameplayLoad(string sceneName) { TryGameplayLoad(sceneName, scene1Spawn); }
 
     private void Update()
     {

@@ -101,7 +101,8 @@ public class UIManager : MonoBehaviour
         SetInactive();
         if (SceneManager.GetActiveScene().name != gameplaySceneName)
         {
-            lm.LoadScene(gameplaySceneName);
+            // no, we arent saving the scene the player was on.
+            gameManager.TryGameplayLoad(gameplaySceneName);
         }
 
         Cursor.visible = false;
