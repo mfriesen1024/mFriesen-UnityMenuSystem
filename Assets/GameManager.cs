@@ -26,9 +26,11 @@ public class GameManager : MonoBehaviour
         this.state = (GameState)state;
     }
 
+    public void PlayerSetActive(bool enabled) { player.SetActive(enabled); }
+
     public void LeaveOptions()
     {
-        if (state == GameState.optionsGameplay) { state = GameState.gameplay; }
+        if (state == GameState.optionsGameplay) { state = GameState.pause; }
         else if (state == GameState.optionsMenu) { state = GameState.mainMenu; }
         else { Debug.LogError("Invalid state."); }
     }

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,7 +13,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] string mainMenuSceneName;
     [SerializeField] GameObject pause;
-    [SerializeField] string gameplaySceneName;
+    [SerializeField] string gameplayScene1Name;
+    [SerializeField] List<string> gameplaySceneNames;
     [SerializeField] GameObject options;
     [SerializeField] GameObject gameOver;
     [SerializeField] string gameOverSceneName;
@@ -57,7 +59,7 @@ public class UIManager : MonoBehaviour
             {
                 case GameState.gameplay: EnterGameplay(); break;
                 case GameState.mainMenu: EnterMainMenu(); break;
-                case GameState.pause: SetInactive(); EnterPause(); break;
+                case GameState.pause: EnterPause(); break;
                 case GameState.optionsGameplay:
                 case GameState.optionsMenu: SetInactive(); options.SetActive(true); break;
                 case GameState.win: SetInactive(); win.SetActive(true); break;
@@ -73,8 +75,10 @@ public class UIManager : MonoBehaviour
 
     private void EnterPause()
     {
-        pause.SetActive(true);
+        SetInactive();
 
+        pause.SetActive(true);
+        Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -99,11 +103,13 @@ public class UIManager : MonoBehaviour
     private void EnterGameplay()
     {
         SetInactive();
-        if (SceneManager.GetActiveScene().name != gameplaySceneName)
+        if (!gameplaySceneNames.Contains(SceneManager.GetActiveScene().name))
         {
             // no, we arent saving the scene the player was on.
-            gameManager.TryGameplayLoad(gameplaySceneName);
+            gameManager.TryGameplayLoad(gameplayScene1Name);
         }
+
+        gameManager.PlayerSetActive(true);
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -116,5 +122,8 @@ public class UIManager : MonoBehaviour
         options.SetActive(false);
         gameOver.SetActive(false);
         win.SetActive(false);
+        gameManager.PlayerSetActive(false);
+
+        Time.timeScale = 1;
     }
 }
