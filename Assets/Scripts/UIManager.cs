@@ -86,6 +86,7 @@ public class UIManager : MonoBehaviour
         SetInactive();
 
         UIPause.SetActive(true);
+        gameManager.PlayerSetActive(true);
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
