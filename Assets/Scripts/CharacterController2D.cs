@@ -59,7 +59,7 @@ public class CharacterController2D : MonoBehaviour
 
     void OnQuit()
     {
-        Application.Quit();
+        //Application.Quit();
     }
 
 
